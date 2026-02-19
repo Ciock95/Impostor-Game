@@ -11,7 +11,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: ["https://impostor-client-nt7k.onrender.com", "http://localhost:5173", "http://localhost:3000"],
         methods: ["GET", "POST"],
         credentials: true
     }
