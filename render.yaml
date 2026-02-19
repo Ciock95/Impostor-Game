@@ -19,9 +19,4 @@ services:
     rootDir: client
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    envVars:
-      - key: VITE_SERVER_URL
-        fromService:
-          type: web
-          name: impostor-server
-          property: host
+    staticPublishPath: dist
