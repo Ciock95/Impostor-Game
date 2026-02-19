@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id": "cibo",
+      "name": "Cibi",
+      "words": ["Pizza", "Pasta", "Sushi", "Burger", "Tacos", "Insalata", "Bistecca", "Gelato", "Torta", "Zuppa", "Pane", "Riso"]
+    },
+    {
+      "id": "animali",
+      "name": "Animali",
+      "words": ["Cane", "Gatto", "Leone", "Tigre", "Elefante", "Giraffa", "Scimmia", "Lupo", "Orso", "Aquila", "Squalo", "Balena"]
+    },
+    {
+      "id": "paesi",
+      "name": "Paesi",
+      "words": ["Italia", "Francia", "Spagna", "Germania", "USA", "Cina", "Giappone", "Brasile", "Canada", "Australia", "India", "Egitto"]
+    }
+  ]
+}

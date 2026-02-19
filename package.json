@@ -1,0 +1,18 @@
+{
+  "name": "impostor-game-root",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build",
+    "server": "cd server && npm install && node index.js",
+    "client": "cd client && npm install && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
