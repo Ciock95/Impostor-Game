@@ -11,8 +11,9 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: '*', // Allow all origins for MVP. Improve for production.
-        methods: ['GET', 'POST']
+        origin: "*",
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
 
