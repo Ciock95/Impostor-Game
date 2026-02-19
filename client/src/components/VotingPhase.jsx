@@ -20,10 +20,23 @@ const VotingPhase = ({ gameState, myPlayerId, socket }) => {
                 {isSpectator ? "SPETTATORE - Chi voteranno?" : "CHI È L'IMPOSTORE?"}
             </h2>
 
-            <div className="flex justify-between items-center mb-8 px-4">
-                <div className="text-slate-400">
-                    Voti: <span className="text-white font-bold">{totalVotes} / {livingPlayers.length}</span>
-                </div>
+            {/* Voting Status List */}
+            <div className="flex flex-wrap justify-center gap-4 mb-8 px-4">
+                {livingPlayers.map(p => (
+                    <div key={p.id} className="flex items-center gap-2 bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700">
+                        <span className={`text-sm font-bold ${p.id === myPlayerId ? 'text-blue-400' : 'text-slate-300'}`}>
+                            {p.name}
+                        </span>
+                        {p.hasVoted ? (
+                            <span className="text-green-500 font-bold">✓</span>
+                        ) : (
+                            <span className="text-slate-600 animate-pulse">●</span>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            <div className="flex justify-center mb-8">
                 <div className={`text-3xl font-mono font-black ${gameState.timer < 10 ? 'text-red-500 animate-pulse' : 'text-slate-200'}`}>
                     {gameState.timer}s
                 </div>

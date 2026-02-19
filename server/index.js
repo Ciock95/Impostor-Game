@@ -53,9 +53,13 @@ function getSafeRoom(room) {
     // Sanitize players' secret roles unless game over or round end or H2H
     safeRoom.players = room.players.map(p => {
         const { role, ...safePlayer } = p;
+
+        // Add hasVoted status (public info)
+        safePlayer.hasVoted = !!room.votes[p.id];
+
         // Reveal roles only in specific phases
         if (['ROUND_END', 'GAME_OVER', 'RESOLUTION', 'STEAL_LIFE', 'HEAD_TO_HEAD'].includes(room.phase)) {
-            return p; // Send full info (including role)
+            return { ...p, hasVoted: !!room.votes[p.id] }; // Send full info (including role)
         }
         // Also reveal if it's the player themselves? No, client handles via 'your_role'
         return safePlayer;
