@@ -4,7 +4,8 @@ import Lobby from './components/Lobby';
 import Game from './components/Game';
 
 // Connect to server (ensure URL matches server port)
-const socket = io(import.meta.env.VITE_SERVER_URL || 'http://localhost:3000');
+const serverUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:3000';
+const socket = io(serverUrl.startsWith('http') ? serverUrl : `https://${serverUrl}`);
 
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);

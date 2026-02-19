@@ -24,4 +24,4 @@ services:
         fromService:
           type: web
           name: impostor-server
-          property: url
+          property: host
