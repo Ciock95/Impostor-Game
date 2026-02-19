@@ -4,7 +4,17 @@ import Lobby from './components/Lobby';
 import Game from './components/Game';
 
 // Connect to server (ensure URL matches server port)
-const serverUrl = import.meta.env.VITE_SERVER_URL || 'https://impostor-server-npkq.onrender.com';
+// Connect to server (ensure URL matches server port)
+let serverUrl = import.meta.env.VITE_SERVER_URL || 'https://impostor-server-npkq.onrender.com';
+
+// Normalize URL: Ensure protocol and domain
+if (!serverUrl.includes('://')) {
+  serverUrl = `https://${serverUrl}`;
+}
+if (!serverUrl.includes('.')) {
+  serverUrl += '.onrender.com';
+}
+
 const socket = io(serverUrl);
 
 function App() {
