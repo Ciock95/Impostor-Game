@@ -8,7 +8,7 @@ const WordGrid = ({ words, targetIndex, role, phase, onWordClick }) => {
     if (!words || words.length === 0) return null;
 
     return (
-        <div className="grid grid-cols-3 gap-4 md:grid-cols-4 p-4 w-full max-w-2xl mx-auto">
+        <div className="grid grid-cols-4 gap-4 p-4 w-full max-w-2xl mx-auto">
             {words.map((word, index) => {
                 const isTarget = index === targetIndex;
 

@@ -36,23 +36,30 @@ const CluePhase = ({ gameState, myPlayerId, socket }) => {
 
             {/* Input Area */}
             {isMyTurn ? (
-                <form onSubmit={submitClue} className="flex gap-2 animate-fade-in-up">
-                    <input
-                        type="text"
-                        className="flex-1 bg-slate-700 border border-slate-600 rounded-xl p-4 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
-                        placeholder="Scrivi un indizio..."
-                        value={clue}
-                        onChange={(e) => setClue(e.target.value)}
-                        maxLength={30}
-                        autoFocus
-                    />
-                    <button
-                        type="submit"
-                        className="px-8 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20"
-                    >
-                        INVIA
-                    </button>
-                </form>
+                <div className="w-full">
+                    <form onSubmit={submitClue} className="flex gap-2 animate-fade-in-up">
+                        <input
+                            type="text"
+                            className="flex-1 bg-slate-700 border border-slate-600 rounded-xl p-4 text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
+                            placeholder="Scrivi un indizio..."
+                            value={clue}
+                            onChange={(e) => setClue(e.target.value)}
+                            maxLength={30}
+                            autoFocus
+                        />
+                        <button
+                            type="submit"
+                            className="px-8 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20"
+                        >
+                            INVIA
+                        </button>
+                    </form>
+                    <progress
+                        className="w-full h-2 rounded-full overflow-hidden [&::-webkit-progress-bar]:bg-slate-700 [&::-webkit-progress-value]:bg-blue-500 [&::-moz-progress-bar]:bg-blue-500 mt-2"
+                        value={timer}
+                        max="60"
+                    ></progress>
+                </div>
             ) : (
                 <div className="text-center p-4 text-slate-500 italic">
                     In attesa dell'indizio...

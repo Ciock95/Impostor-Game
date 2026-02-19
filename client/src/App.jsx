@@ -5,13 +5,15 @@ import Game from './components/Game';
 
 // Connect to server (ensure URL matches server port)
 // Connect to server (ensure URL matches server port)
-let serverUrl = import.meta.env.VITE_SERVER_URL || 'https://impostor-server-npkq.onrender.com';
+// In dev mode (npm run dev), default to localhost. In prod, default to Render.
+const defaultUrl = import.meta.env.DEV ? 'http://localhost:3000' : 'https://impostor-server-npkq.onrender.com';
+let serverUrl = import.meta.env.VITE_SERVER_URL || defaultUrl;
 
 // Normalize URL: Ensure protocol and domain
 if (!serverUrl.includes('://')) {
   serverUrl = `https://${serverUrl}`;
 }
-if (!serverUrl.includes('.')) {
+if (!serverUrl.includes('.') && !serverUrl.includes('localhost')) {
   serverUrl += '.onrender.com';
 }
 

@@ -3,17 +3,266 @@
     {
       "id": "cibo",
       "name": "Cibi",
-      "words": ["Pizza", "Pasta", "Sushi", "Burger", "Tacos", "Insalata", "Bistecca", "Gelato", "Torta", "Zuppa", "Pane", "Riso"]
+      "words": [
+        "Pizza",
+        "Pasta",
+        "Sushi",
+        "Burger",
+        "Tacos",
+        "Insalata",
+        "Bistecca",
+        "Gelato",
+        "Torta",
+        "Zuppa",
+        "Pane",
+        "Riso",
+        "Frutta",
+        "Formaggio",
+        "Pollo",
+        "Pesce"
+      ]
     },
     {
       "id": "animali",
       "name": "Animali",
-      "words": ["Cane", "Gatto", "Leone", "Tigre", "Elefante", "Giraffa", "Scimmia", "Lupo", "Orso", "Aquila", "Squalo", "Balena"]
+      "words": [
+        "Cane",
+        "Gatto",
+        "Leone",
+        "Tigre",
+        "Elefante",
+        "Giraffa",
+        "Scimmia",
+        "Lupo",
+        "Orso",
+        "Aquila",
+        "Squalo",
+        "Balena",
+        "Cavallo",
+        "Delfino",
+        "Pinguino",
+        "Serpente"
+      ]
+    },
+    {
+      "id": "pokemon",
+      "name": "Pokémon",
+      "words": [
+        "Pikachu",
+        "Charizard",
+        "Bulbasaur",
+        "Squirtle",
+        "Jigglypuff",
+        "Meowth",
+        "Psyduck",
+        "Machamp",
+        "Gengar",
+        "Eevee",
+        "Snorlax",
+        "Mewtwo",
+        "Lugia",
+        "Lucario",
+        "Greninja",
+        "Rayquaza"
+      ]
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft",
+      "words": [
+        "Creeper",
+        "Enderman",
+        "Diamante",
+        "Steve",
+        "Nether",
+        "Piccone",
+        "Bedrock",
+        "Villager",
+        "Scheletro",
+        "Zombie",
+        "Ossidiana",
+        "Redstone",
+        "Ghast",
+        "Ender Dragon",
+        "Spada",
+        "Fornace"
+      ]
+    },
+    {
+      "id": "bonus",
+      "name": "Bonus",
+      "words": [
+        "Ciock",
+        "Sind",
+        "Slow",
+        "Aki",
+        "Parkside",
+        "Monster",
+        "Clodsire",
+        "<<Bonk>>",
+        "Discount",
+        "Discord",
+        "Rematch",
+        "Fortnite",
+        "Eurotruck",
+        "Joypad rotto",
+        "Roma",
+        "Sicilia"
+      ]
     },
     {
       "id": "paesi",
       "name": "Paesi",
-      "words": ["Italia", "Francia", "Spagna", "Germania", "USA", "Cina", "Giappone", "Brasile", "Canada", "Australia", "India", "Egitto"]
+      "words": [
+        "Italia",
+        "Francia",
+        "Spagna",
+        "Germania",
+        "USA",
+        "Cina",
+        "Giappone",
+        "Brasile",
+        "Canada",
+        "Australia",
+        "India",
+        "Egitto",
+        "Messico",
+        "Argentina",
+        "Russia",
+        "Svezia"
+      ]
+    },
+    {
+      "id": "serietv",
+      "name": "Serie TV",
+      "words": [
+        "Breaking Bad",
+        "Game of Thrones",
+        "Stranger Things",
+        "Friends",
+        "The Office",
+        "Squid Game",
+        "La Casa di Carta",
+        "Black Mirror",
+        "The Walking Dead",
+        "Lost",
+        "Mandalorian",
+        "Sherlock",
+        "I Simpson",
+        "Dark",
+        "Narcos",
+        "The Boys"
+      ]
+    },
+    {
+      "id": "videogiochi",
+      "name": "Videogiochi",
+      "words": [
+        "Super Mario",
+        "Minecraft",
+        "Fortnite",
+        "GTA",
+        "Zelda",
+        "Call of Duty",
+        "FIFA",
+        "Pokemon",
+        "Pac-Man",
+        "Tetris",
+        "The Sims",
+        "Assassin's Creed",
+        "League of Legends",
+        "God of War",
+        "Among Us",
+        "Rocket League"
+      ]
+    },
+    {
+      "id": "film",
+      "name": "Film",
+      "words": [
+        "Harry Potter",
+        "Star Wars",
+        "Il Signore degli Anelli",
+        "Titanic",
+        "Avatar",
+        "The Avengers",
+        "Il Padrino",
+        "Batman",
+        "Mamma ho perso l'aereo",
+        "Matrix",
+        "Spider-Man",
+        "Jurassic Park",
+        "Una notte da Leoni",
+        "Forrest Gump",
+        "Ritorno al Futuro",
+        "Pirati dei Caraibi"
+      ]
+    },
+    {
+      "id": "anime",
+      "name": "Anime e Manga",
+      "words": [
+        "Dragon Ball",
+        "One Piece",
+        "Naruto",
+        "L'Attacco dei Giganti",
+        "Death Note",
+        "Demon Slayer",
+        "Pokemon",
+        "Sailor Moon",
+        "My Hero Academia",
+        "Evangelion",
+        "One Punch Man",
+        "Fullmetal Alchemist",
+        "Tokyo Ghoul",
+        "Hunter x Hunter",
+        "JoJo",
+        "Detective Conan"
+      ]
+    },
+    {
+      "id": "periferiche",
+      "name": "Periferiche d'ufficio",
+      "words": [
+        "Mouse",
+        "Tastiera",
+        "Monitor",
+        "Stampante",
+        "Scanner",
+        "Webcam",
+        "Cuffie",
+        "Microfono",
+        "Proiettore",
+        "Router",
+        "Chiavetta USB",
+        "Hard Disk",
+        "Mousepad",
+        "Casse",
+        "Tavoletta Grafica",
+        "Laptop"
+      ]
+    },
+    {
+      "id": "sport",
+      "name": "Sport",
+      "words": [
+        "Calcio",
+        "Basket",
+        "Tennis",
+        "Pallavolo",
+        "Nuoto",
+        "Rugby",
+        "Golf",
+        "Boxe",
+        "Atletica",
+        "Ciclismo",
+        "Sci",
+        "Formula 1",
+        "Baseball",
+        "Hockey",
+        "Moto GP",
+        "Karate"
+      ]
     }
   ]
 }

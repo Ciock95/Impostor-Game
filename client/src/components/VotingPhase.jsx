@@ -4,7 +4,7 @@ const VotingPhase = ({ gameState, myPlayerId, socket }) => {
     const [votedId, setVotedId] = useState(null);
 
     const handleVote = (targetId) => {
-        if (votedId) return; // Already voted locally (server also checks)
+        if (votedId === targetId) return; // Don't re-send same vote
         setVotedId(targetId);
         socket.emit('vote_player', { roomId: gameState.id, targetId });
     };
@@ -57,10 +57,9 @@ const VotingPhase = ({ gameState, myPlayerId, socket }) => {
                             ${isSelected
                                     ? 'bg-red-500/20 border-red-500 scale-105 shadow-[0_0_20px_rgba(239,68,68,0.3)]'
                                     : 'bg-slate-800 border-slate-700 hover:border-slate-500'}
-                            ${!votedId && !isMe && !isSpectator ? 'cursor-pointer hover:bg-slate-750' : ''}
                             ${isMe || isSpectator ? 'opacity-75' : ''}
                         `}
-                            onClick={() => !votedId && !isMe && !isSpectator && handleVote(p.id)}
+                            onClick={() => !isMe && !isSpectator && handleVote(p.id)}
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center font-bold text-lg">
@@ -94,7 +93,7 @@ const VotingPhase = ({ gameState, myPlayerId, socket }) => {
                                 ? 'bg-slate-700 border-slate-500 text-white'
                                 : 'text-slate-500 hover:text-slate-300 hover:border-slate-400'}
                     `}
-                        onClick={() => !votedId && handleVote('SKIP')}
+                        onClick={() => handleVote('SKIP')}
                     >
                         <span className="font-bold text-xl uppercase tracking-widest">SKIP</span>
                     </div>

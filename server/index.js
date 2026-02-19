@@ -11,7 +11,13 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["https://impostor-client-nt7k.onrender.com", "http://localhost:5173", "http://localhost:3000"],
+        origin: [
+            "https://impostor-client-nt7k.onrender.com",
+            "http://localhost:5173",
+            "http://localhost:3000",
+            "http://127.0.0.1:5173",
+            "http://127.0.0.1:3000"
+        ],
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -69,7 +75,7 @@ function getSafeRoom(room) {
 }
 
 const MAX_LIVES = 3;
-const CLUE_TIME_LIMIT = 20;
+const CLUE_TIME_LIMIT = 60; // 60 seconds (was 20)
 
 io.on('connection', (socket) => {
     console.log('User connected:', socket.id);
@@ -188,6 +194,10 @@ io.on('connection', (socket) => {
 
         // Record vote
         room.votes[socket.id] = targetId;
+
+        // Broadcast update so everyone sees the checkmark
+        io.to(roomId).emit('room_update', getSafeRoom(room));
+
         checkVotingResult(roomId);
     });
 
@@ -424,13 +434,19 @@ function startGame(roomId) {
     if (!room) return;
 
     // 1. Select Category & Words
-    const catIndex = Math.floor(Math.random() * wordsData.categories.length);
+    let catIndex;
+    let attempts = 0;
+    do {
+        catIndex = Math.floor(Math.random() * wordsData.categories.length);
+        attempts++;
+    } while (attempts < 5 && room.category === wordsData.categories[catIndex].name && wordsData.categories.length > 1);
+
     const category = wordsData.categories[catIndex];
     room.category = category.name;
     room.words = [...category.words]; // Copy
 
     // 2. Select Target & Imposter
-    room.targetIndex = Math.floor(Math.random() * 12);
+    room.targetIndex = Math.floor(Math.random() * 16);
 
     // Filter LIVING players for Impostor selection
     const livingPlayers = room.players.filter(p => !p.isGhost && p.lives > 0);
@@ -486,6 +502,9 @@ function startGame(roomId) {
         const j = Math.floor(Math.random() * (i + 1));
         [room.players[i], room.players[j]] = [room.players[j], room.players[i]];
     }
+
+    const firstPlayer = room.players[0];
+
 
     // NOTIFY SPECTATORS OF NEW SECRETS
     const deadPlayers = room.players.filter(p => p.lives <= 0 || p.isGhost);
