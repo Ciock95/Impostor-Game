@@ -4,8 +4,8 @@ import Lobby from './components/Lobby';
 import Game from './components/Game';
 
 // Connect to server (ensure URL matches server port)
-const serverUrl = import.meta.env.VITE_SERVER_URL || 'http://localhost:3000';
-const socket = io(serverUrl.startsWith('http') ? serverUrl : `https://${serverUrl}`);
+const serverUrl = import.meta.env.VITE_SERVER_URL || 'https://impostor-server-npkq.onrender.com';
+const socket = io(serverUrl);
 
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
