@@ -12,12 +12,13 @@ services:
     plan: free
 
   # The Frontend (React/Vite)
-  - type: static
+  # The Frontend (React/Vite)
+  - type: web
     name: impostor-client
     env: static
     root: client
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_SERVER_URL
         fromService:
