@@ -17,6 +17,10 @@ function App() {
   useEffect(() => {
     socket.on('connect', () => setIsConnected(true));
     socket.on('disconnect', () => setIsConnected(false));
+    socket.on('connect_error', (err) => {
+      console.error("Connection error:", err);
+      setErrorMSG(`Conn Error: ${err.message}`);
+    });
 
     socket.on('room_joined', ({ roomId, gameState }) => {
       setGameState(gameState);
@@ -112,6 +116,12 @@ function App() {
           {errorMSG}
         </div>
       )}
+
+      {/* DEBUG INFO */}
+      <div className="fixed bottom-2 right-2 text-[10px] text-slate-500 font-mono z-50 bg-black/80 p-2 rounded">
+        Target: {serverUrl} <br />
+        Connected: {isConnected ? 'YES' : 'NO'}
+      </div>
 
       <main className="flex-1 flex items-center justify-center p-4">
         {!gameState ? (
