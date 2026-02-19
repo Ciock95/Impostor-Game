@@ -3,7 +3,7 @@ services:
   - type: web
     name: impostor-server
     env: node
-    root: server
+    rootDir: server
     buildCommand: npm install
     startCommand: node index.js
     envVars:
@@ -16,7 +16,7 @@ services:
   - type: web
     name: impostor-client
     env: static
-    root: client
+    rootDir: client
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
